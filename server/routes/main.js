@@ -41,6 +41,64 @@ router.get('/', async (req, res) => {
     }
 })
 
+/*****
+    GET /
+    Post :id
+*****/
+router.get('/post/:id', async (req, res) => {
+    try {
+        let slug = req.params.id;
+        const data = await Post.findById({ _id: slug });
+        const locals = {
+            title: data.title,
+            description: "A blog for travellers to post about the places they are and have been."
+        }
+  
+        res.render('post', { 
+            locals,
+            data,
+            currentRoute: `/post/${slug}`
+        });
+    } 
+    catch (err) {
+        console.log(err);
+    }
+});
+
+/*****
+    POST /
+    Post - searchTerm
+*****/
+router.post('/search', async (req, res) => {
+    try {
+      const locals = {
+        title: "Seach",
+        description: "A blog for travellers to post about the places they are and have been."
+      }
+  
+      let searchTerm = req.body.searchTerm;
+      const searchNoSpecialChar = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "")
+  
+      const data = await Post.find({
+        $or: [
+          { title: { $regex: new RegExp(searchNoSpecialChar, 'i') }},
+          { body: { $regex: new RegExp(searchNoSpecialChar, 'i') }}
+        ]
+      });
+  
+      res.render("search", {
+        data,
+        locals,
+        currentRoute: '/'
+      });
+  
+    } 
+    catch (err) {
+      console.log(err);
+    }
+  
+});
+
 
 module.exports = router;
 
