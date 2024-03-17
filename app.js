@@ -15,6 +15,11 @@ const PORT = 5097 || process.env.PORT;
 connectDB();
 
 
+// middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
 app.use(express.static('public'));
 
 
