@@ -211,9 +211,9 @@ router.post('/register', async (req, res) => {
             res.status(201).json({ message: 'User Created', user });
         } 
         catch (err) {
-            if(error.code === 11000) {
+            if(err.code === 11000) {
                 res.status(409).json({ message: 'User already in use'});
-        }
+            }
             res.status(500).json({ message: 'Internal server error'})
         }
     } 
