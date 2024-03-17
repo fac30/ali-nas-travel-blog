@@ -24,6 +24,7 @@ connectDB();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
+app.use(methodOverride('_method'));
 
 app.use(session({
     secret: 'keyboard cat',
