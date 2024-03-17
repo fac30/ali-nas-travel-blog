@@ -42,7 +42,7 @@ router.get('/admin', async (req, res) => {
         }
         res.render('admin/index', { locals, layout: adminLayout });
     } 
-    catch (err) {
+    catch(err) {
         console.log(err);
     }
 });
@@ -71,7 +71,7 @@ router.post('/admin', async (req, res) => {
     res.cookie('token', token, { httpOnly: true });
     res.redirect('/dashboard');
     } 
-    catch (err) {
+    catch(err) {
         console.log(err);
     }
 });
@@ -96,7 +96,7 @@ router.get('/dashboard', authMiddleware, async (req, res) => {
     });
 
     } 
-    catch (err) {
+    catch(err) {
         console.log(err);
     }
 });
@@ -120,7 +120,7 @@ router.get('/add-post', authMiddleware, async (req, res) => {
         });
 
     } 
-    catch (err) {
+    catch(err) {
         console.log(err);
     }
 });
@@ -145,7 +145,7 @@ router.post('/add-post', authMiddleware, async (req, res) => {
         console.log(err);
         }
     } 
-    catch (err) {
+    catch(err) {
         console.log(err);
     }
 });
@@ -170,7 +170,7 @@ router.get('/edit-post/:id', authMiddleware, async (req, res) => {
             layout: adminLayout
         })
     } 
-    catch (err) {
+    catch(err) {
         console.log(err);
     }
 });
@@ -191,7 +191,7 @@ router.put('/edit-post/:id', authMiddleware, async (req, res) => {
         res.redirect(`/edit-post/${req.params.id}`);
 
     } 
-    catch (err) {
+    catch(err) {
         console.log(err);
     }
 });
@@ -217,7 +217,7 @@ router.post('/register', async (req, res) => {
             res.status(500).json({ message: 'Internal server error'})
         }
     } 
-    catch (err) {
+    catch(err) {
         console.log(err);
     }
 });
@@ -232,7 +232,7 @@ router.delete('/delete-post/:id', authMiddleware, async (req, res) => {
         await Post.deleteOne( { _id: req.params.id } );
         res.redirect('/dashboard');
     } 
-    catch (err) {
+    catch(err) {
         console.log(err);
     }
 });
