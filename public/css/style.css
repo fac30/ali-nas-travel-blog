@@ -113,11 +113,11 @@ img {
   text-decoration: underline;
 }
 
-.header__nav {
+/* .header__nav {
   justify-content: center;
   display: flex;
   grid-area: menu;
-}
+} */
 
 .header__logo, .header__nav, .header__button {
   width: 100%;
@@ -148,7 +148,7 @@ img {
 }
 
 /* Header -> Navigation */
-.header__nav ul {
+/* .header__nav ul {
   list-style-type: none;
   display: flex;
   gap: 1rem;
@@ -167,7 +167,7 @@ img {
 
 .header__nav ul a:hover {
   text-decoration: underline;
-}
+} */
 
 /* Author - HomePage */
 .author {
