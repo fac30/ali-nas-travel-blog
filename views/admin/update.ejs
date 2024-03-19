@@ -1,0 +1,58 @@
+<div class="container">
+<a href="/admin/dashboard">&larr; Back</a>
+<div class="admin-title">
+  <h2>View / Edit Post</h2>
+
+  <form action="/delete-post/<%= data._id %>?_method=DELETE" method="POST">
+    <input type="submit" value="Delete" class="btn-delete btn">
+  </form>
+
+</div>
+
+<form action="/update/<%= data._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+<div class="mb-3">
+      <label for="title" class="form-label">title</label>
+      <input
+        type="text"
+        id="title"
+        class="form-control"
+        placeholder="title"
+        aria-label="title"
+        name="title"
+        value="<%= data.title %>"
+      />
+    </div>
+ 
+<div class="mb-3">
+      <label for="floatingTextarea">Content</label>
+      <textarea
+        class="form-control"
+        placeholder="Leave a comment here"
+        id="floatingTextarea"
+        name="body"
+        cols="50" rows="10"
+      ><%= data.body %></textarea>
+      </div>
+  
+ <input
+        type="file"
+        id="image"
+        class="form-control"
+        aria-label="image"
+        name="image"
+       />
+      
+      <input
+        type="hidden"
+        id="image"
+        class="form-control"
+        aria-label="image"
+        name="old_image"
+        value="<%= data.image %>"
+       >
+  <input type="submit" value="Update" class="btn btn-primary mt-2">
+
+</form>
+</div>
+
+    

@@ -1,28 +1,45 @@
-<div class="author">
-    <h1 class="author__heading">Hi, we're Ali & Nas.</h1>
-    <p class="author__body">We are both travel writers who blog about our travels</p>
-</div>
-  
-<img src="/img/beach-banner.jpg" alt="person looking out through window" class="hero-image" width="981" height="528">
-  
-<section class="articles">
-  <h2 class="articles__heading">Latest Posts</h2>
+<section>
+  <div class="px-4 pt-5 my-5 text-center">
+    <h1 class="display-4 fw-bold text-body-emphasis">Centered screenshot</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">
+        Quickly design and customize responsive mobile-first sites with
+        Bootstrap, the world’s most popular front-end open source toolkit,
+        featuring Sass variables and mixins, responsive grid system, extensive
+        prebuilt components, and powerful JavaScript plugins.
+      </p>
+    </div>
+    <img
+      src="/img/blog.webp"
+      alt="laptop"
+      class="rounded img-fluid"
+      width="981"
+      height="528"
+    />
+  </div>
 
-  <ul class="article-ul">
+  <ul class="list-group">
     <% data.forEach(post => { %>
-      <li>
-        <a href="/post/<%= post._id %>">
-          <span><%= post.title %></span>
-          <span class="article-list__date"><%= post.createdAt.toDateString() %>
-          </span>
+    <li class="list-group-item">
+      <div class="d-flex justify-content-between">
+        <a
+          href="/post/<%= post._id %>"
+          class="list-group-item list-group-item-action align-items-center d-flex justify-content-between"
+        >
+          <div>
+            <img
+              src="/<%= post.image %>"
+              alt="<%= post.image.name %>"
+              class="image-list"
+            />
+            <span class="h3 mx-5"><%= post.title %></span>
+          </div>
+          <span class="badge text-bg-primary rounded-pill"
+            ><%= post.createdAt.toDateString() %></span
+          >
         </a>
-      </li>
+      </div>
+    </li>
     <% }) %>
   </ul>
-  
-  
-  <% if (nextPage !== null) { %>
-    <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
-  <% } %>
-    
 </section>

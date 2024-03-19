@@ -1,20 +1,38 @@
-<div class="admin-title">
-    <h2>Posts</h2>
-    <a href="/add-post" class="button">Add New Post</a>
+
+<div class="d-flex justify-content-between align-items-center mb-5">
+  <h2>Posts</h2>
+  <a href="/new-post" class="btn btn-success">+ Add New</a>
 </div>
-  
-<ul class="admin-posts">
+ <ul class="list-group ">
     <% data.forEach(post => { %>
-        <li>
-            <a href="/post/<%= post._id %>">
-                <%= post.title %> &nearr;
-            </a>
-            <div class="admin-post-controls">
-                <a href="/edit-post/<%= post._id %>" class="btn">Edit</a>
-                <form action="/delete-post/<%= post._id %>?_method=DELETE" method="POST">
-                <input type="submit" value="Delete" class="btn-delete btn">
-                </form>
-            </div>
-        </li>
+    <li
+      class="list-group-item  "
+    >
+    <div class="d-flex justify-content-between">
+      <a
+        href="/post/<%= post._id %>"
+        class="list-group-item-action  align-items-center d-flex justify-content-between "
+      >
+      <div>
+        <img
+          src="/<%= post.image %>"
+          alt="<%= post.image.name %>"
+          class="image-list"
+        />
+        <span class="h3 mx-5"><%= post.title %></span>
+        </div>
+        
+      </a>
+      <div class=" align-items-center d-flex justify-content-between ">
+        <a href="/update/<%= post._id %>" class="btn btn-info mx-1">Edit</a>
+
+        <form action="/delete-post/<%= post._id %>?_method=DELETE" method="POST">
+          <input type="submit" value="Delete" class="btn btn-danger">
+         
+        </form>
+
+      </div>
+      </div>
+    </li>
     <% }) %>
-</ul>
+  </ul>

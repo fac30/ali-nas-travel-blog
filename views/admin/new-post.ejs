@@ -1,0 +1,49 @@
+<div class="container">
+  <form action="/generate" method="POST" class="chatgpt-form">
+<div class="mb-3">
+      <label for="chatgpt" class="form-label">ChatGPT</label>
+      <input
+        type="text"
+        id="chatgpt"
+        class="form-control"
+        placeholder="chatgpt"
+        aria-label="chatgpt"
+        name="chatgpt"
+      />
+    </div>
+  </form>
+  <form action="/new-post" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="title" class="form-label">title</label>
+      <input
+        type="text"
+        id="title"
+        class="form-control"
+        placeholder="title"
+        aria-label="title"
+        name="title"
+      />
+    </div>
+    <div class="mb-3">
+     
+      <label for="Textarea">Content</label>
+      <textarea
+        class="form-control"
+        placeholder="Leave a comment here"
+        id="textarea"
+        name="body"
+        cols="50" rows="10"
+      ></textarea>
+     
+      <label for="image" class="form-label">Image</label>
+      <input
+        type="file"
+        id="image"
+        class="form-control"
+        aria-label="image"
+        name="image"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

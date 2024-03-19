@@ -1,52 +1,50 @@
-require('dotenv').config();
+import dotenv from "dotenv";
+dotenv.config();
 
+import express from "express";
+import expressLayout from "express-ejs-layouts";
+import methodOverride from "method-override";
+import cookieParser from "cookie-parser";
+import session from "express-session";
+import MongoStore from "connect-mongo";
 
-const express = require('express');
-const expressLayout = require('express-ejs-layouts');
-const methodOverride = require('method-override');
-const cookieParser = require('cookie-parser');
-const session = require('express-session');
-const MongoStore = require('connect-mongo');
-
-
-const connectDB = require('./server/config/db');
-
+import connectDB from "./server/config/db.js";
+import mainRoutes from "./server/routers/main.js";
+import adminRoutes from "./server/routers/admin.js";
 
 const app = express();
-const PORT = 5097 || process.env.PORT;
 
-
-// db connection
-connectDB();
-
-
-// middleware
+const PORT = process.env.PORT || 5000;
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cookieParser());
-app.use(methodOverride('_method'));
+app.set("view engine", "ejs");
 
-app.use(session({
-    secret: 'keyboard cat',
+app.use(express.json());
+
+app.use(cookieParser());
+
+app.use(
+  session({
+    secret: "keyboard cat",
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI
-    })
-}))
+      mongoUrl: process.env.MONGODB_URI,
+    }),
+  })
+);
+app.use(methodOverride("_method"));
+app.use(express.static("public"));
+app.use(express.static("uploads"));
 
-app.use(express.static('public'));
-
-
-// templating engine
 app.use(expressLayout);
-app.set('layout', './layouts/main');
-app.set('view engine', 'ejs');
 
+connectDB();
 
-app.use('/', require('./server/routes/main'));
-app.use('/', require('./server/routes/admin'));
+app.set("layout", "./layouts/main");
+
+app.use("/", mainRoutes);
+app.use("/", adminRoutes);
 
 app.listen(PORT, () => {
-    console.log(`Listening on PORT: ${PORT}`);
-})
+  console.log(`App listening on port ${PORT}`);
+});

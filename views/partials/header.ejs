@@ -1,28 +1,56 @@
-<header class="header">
-  <a href="/" class="header__logo">Travel Blog</a>
 
-  <!-- <nav class="header__nav">
-    <ul>
-      <li>
-        <a href="/" class="">Home</a>
-      </li>
-      <li>
-        <a href="/about" class="">About</a>
-      </li>
-      <li>
-        <a href="/contact" class="">Contact</a>
-      </li>
-    </ul>
-  </nav> -->
+<header>
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Blog</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">about</a>
+          </li>
+        </ul>
+        <form
+          action="/search"
+          method="POST"
+          class="d-flex me-auto"
+          role="search"
+        >
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            name="query"
+          />
+        </form>
+        
+        <ul class="navbar-nav mb-lg-0 user-login">
+         
+          <li class="nav-item">
+            <% if (user) { %>
+            <a class="nav-link active" href="#" id="user-name"><%= user.username %> </a>
 
-  <div class="header__button">
-    <button class="searchBtn" aria-expanded="false">
-      Search
-      <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M7.79167 13.4583C10.9213 13.4583 13.4583 10.9213 13.4583 7.79167C13.4583 4.66205 10.9213 2.125 7.79167 2.125C4.66205 2.125 2.125 4.66205 2.125 7.79167C2.125 10.9213 4.66205 13.4583 7.79167 13.4583Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M14.875 14.875L11.7938 11.7938" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-  </div>
-
-</header> 
+            <% } else { %>
+            <a class="nav-link active" href="/login" id="userLink">Login</a>
+            <% } %>
+          </li>
+          <a class="nav-link active" href="/logout" id="logoutLink"> Logout </a>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
