@@ -1,0 +1,29 @@
+<div class="container container-form">
+    <form action="/register" method="POST" class="form">
+       <div class="mb-3">
+    <label for="UserName" class="form-label">UserName</label>
+      <input type="text" id="UserName" class="form-control" placeholder="Username" aria-label="Username" name="username">
+  </div> 
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+    
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+  </div>
+ <div class="mb-3">
+    <label for="exampleInputPassword2" class="form-label">Password Confirmation</label>
+    <input type="password" class="form-control" id="exampleInputPassword2" name="passwordConfirmation">
+  </div>
+<% if (errors && errors.length > 0) { %>
+          <div class="alert alert-danger" role="alert">
+             <% errors.forEach(error => { %>
+                <p><%= error %></p>
+             <% }); %>
+          </div>
+       <% } %>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>

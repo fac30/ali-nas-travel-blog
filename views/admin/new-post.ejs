@@ -1,0 +1,50 @@
+<div class="container new-post-min-height mt-3">
+  <a href="/admin/dashboard">&larr; Back</a>
+  <form action="/generate" method="POST" class="chatgpt-form mt-3">
+    <div class="mb-3">
+      <label for="chatgpt" class="form-label">ChatGPT</label>
+      <input
+        type="text"
+        id="chatgpt"
+        class="form-control"
+        placeholder="Generate a blog post"
+        aria-label="Generate a blog post"
+        name="chatgpt"
+      />
+    </div>
+  </form>
+  <form action="/new-post" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        id="title"
+        class="form-control"
+        placeholder="Title of blog post"
+        aria-label="Title of blog post"
+        name="title"
+      />
+    </div>
+    <div class="mb-3">
+     
+      <label for="Textarea">Blog Post</label>
+      <textarea
+        class="form-control"
+        placeholder="Enter your blog post here"
+        id="textarea"
+        name="body"
+        cols="50" rows="10"
+      ></textarea>
+     
+      <label for="image" class="form-label mt-3">Image</label>
+      <input
+        type="file"
+        id="image"
+        class="form-control"
+        aria-label="image"
+        name="image"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
