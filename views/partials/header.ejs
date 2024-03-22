@@ -1,0 +1,53 @@
+<header>
+  <nav class="navbar rounded-bottom navbar-expand-lg pb-0 mb-0">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="/">Travel Blog</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">about</a>
+          </li> -->
+        </ul>
+        <form
+          action="/search"
+          method="POST"
+          class="d-flex me-auto"
+          role="search"
+        >
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            name="query"
+          />
+        </form>
+        
+        <ul class="navbar-nav mb-lg-0 user-login">
+          <li class="nav-item">
+            <% if (user) { %>
+            <a class="nav-link active fw-bold" href="#" id="user-name"><%= user.username %></a>
+            <% } else { %>
+            <a class="nav-link active fw-bold" href="/login" id="userLink">Login</a>
+            <% } %>
+          </li>
+          <a class="nav-link active fw-bold" href="/logout" id="logoutLink">Logout</a>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

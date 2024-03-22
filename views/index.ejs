@@ -1,0 +1,42 @@
+<section>
+  <div class="px-4 my-5 text-center">
+    <h1 class="display-1 fw-bold text-body-emphasis">Hi, we're Ali & Nas.</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead fw-bold mb-4">
+        We are both travel writers who blog about our travels
+      </p>
+    </div>
+    <img
+      src="/img/beach-banner.jpg"
+      alt="beach"
+      class="hero-image rounded img-fluid"
+      width="1400"
+      height="528"
+    />
+  </div>
+
+  <ul class="list-group">
+    <% data.forEach(post => { %>
+    <li class="list-group-item">
+      <div class="d-flex justify-content-between">
+        <a
+          href="/post/<%= post._id %>"
+          class="list-group-item list-group-item-action align-items-center d-flex justify-content-between"
+        >
+          <div>
+            <img
+              src="/<%= post.image %>"
+              alt="<%= post.image.name %>"
+              class="image-list"
+            />
+            <span class="h3 mx-5"><%= post.title %></span>
+          </div>
+          <span class="badge text-bg-primary rounded-pill"
+            ><%= post.createdAt.toDateString() %></span
+          >
+        </a>
+      </div>
+    </li>
+    <% }) %>
+  </ul>
+</section>

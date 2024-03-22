@@ -1,0 +1,19 @@
+<div class="container mt-3">
+  <section>
+    <a href="/">&larr; Back</a>
+    <div class="px-4 pt-4">
+      <h1 class="display-5 fw-bold text-body-emphasis text-center mb-4"><%= data.title %></h1>
+
+      <img
+        src="/<%= data.image %>"
+        alt="<%= data.image.name %>"
+        class="hero-image rounded img-fluid"
+        width="1400"
+        height="528"
+      />
+      <div class="col-lg-12 mx-auto">
+        <p class="text-start fs-5 mt-5"><%- data.body %></p>
+      </div>
+    </div>
+  </section>
+</div>
