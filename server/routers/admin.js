@@ -50,33 +50,33 @@ router.post("/new-post", authMiddleware, upload, async (req, res) => {
       });
 
       await Post.create(newPost);
-      const users = await User.find({}, "email");
+      // const users = await User.find({}, "email");
 
-      // Prepare email content
-      const emailContent = {
-        from: process.env.EMAIL_USER,
-        subject: "ALi & Nas Blog",
-        text: "A new post has been added. Visit the website to check it out!",
-        html: "<p>A new post has been added. Visit the website to check it out!</p>",
-      };
+      // // Prepare email content
+      // const emailContent = {
+      //   from: process.env.EMAIL_USER,
+      //   subject: "ALi & Nas Blog",
+      //   text: "A new post has been added. Visit the website to check it out!",
+      //   html: "<p>A new post has been added. Visit the website to check it out!</p>",
+      // };
 
-      // Configure nodemailer
-      const transporter = nodemailer.createTransport({
-        service: "gmail",
-        host: "smtp.gmail.com",
-        port: 465,
-        secure: true,
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASSWORD,
-        },
-      });
+      // // Configure nodemailer
+      // const transporter = nodemailer.createTransport({
+      //   service: "gmail",
+      //   host: "smtp.gmail.com",
+      //   port: 465,
+      //   secure: true,
+      //   auth: {
+      //     user: process.env.EMAIL_USER,
+      //     pass: process.env.EMAIL_PASSWORD,
+      //   },
+      // });
 
-      // Send email to each user
-      for (const user of users) {
-        emailContent.to = user.email;
-        await transporter.sendMail(emailContent);
-      }
+      // // Send email to each user
+      // for (const user of users) {
+      //   emailContent.to = user.email;
+      //   await transporter.sendMail(emailContent);
+      // }
       res.redirect("/admin/dashboard");
     } catch (error) {
       console.log(error);
