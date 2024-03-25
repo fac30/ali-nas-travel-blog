@@ -56,7 +56,7 @@ Once installed copy the _.env.example_ and change the name to _.env_, as this is
 Then go to:
 
 ```sh
-    hello [MongoDB Atlas](https://www.mongodb.com/atlas/database
+    https://www.mongodb.com/atlas/database
 ```
 
 Create a free account and follow the instructions to open a free database, as part of the set up process you will is issued with a _Connection String_ to your API linking the project to you database where the blog posts and images will be stored.
