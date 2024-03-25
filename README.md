@@ -1,18 +1,3 @@
-# ali-nas-travel-blog
-Founders and Coders final project assignment
-
-
-- In terminal run the following: npm start
-<br> <br>
-- Localhost is running on port: 5096
-<br> <br>
-
-
-
-
-
-
-
 # Ali & Nas Travel Blog
 
 ![Contributors](https://img.shields.io/github/contributors/fac30/ali-nas-travel-blog?style=plastic) ![Forks](https://img.shields.io/github/forks/fac30/ali-nas-travel-blog) ![Stars](https://img.shields.io/github/stars/fac30/ali-nas-travel-blog) ![Issues](https://img.shields.io/github/issues/fac30/ali-nas-travel-blog)
@@ -47,6 +32,12 @@ As part of the installation process Nodemon was installed to run the project loc
 
 ```sh
     npm start
+```
+
+The project is using Port 5096 due to port conflicts during development.
+
+```sh
+    http://localhost:5096/
 ```
 
 ## How To Use The Project
