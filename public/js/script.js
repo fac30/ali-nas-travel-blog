@@ -43,4 +43,4 @@ form.addEventListener("submit", async (e) => {
   logoutLink.addEventListener("mouseleave", function () {
     logoutLink.style.display = "none";
     userLink.style.display = "inline";
-  });
+});
