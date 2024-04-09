@@ -77,7 +77,7 @@ Or alternatively follow this YouTube video:
     https://www.youtube.com/watch?v=aVog4J6nIAU
 ```
 
-Once your up nad running click on _Login_ on the top right and then click _Signup_ and create and account.
+Once your up and running click on _Login_ on the top right and then click _Signup_ and create and account.
 
 With the account setup go to MongoDB Atlas and in the collection for _users_ find the account you created and change the role for your user to **admin** and you will have administrator access.
 
